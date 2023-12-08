@@ -6,5 +6,8 @@ namespace FinalProject.Models
     {
         public int ChampId { get; set; }
         public string? Name { get; set; }
+
+        public int LaneID { get; set; }
+        public Lanes? Lanes { get; set; }
     }
 }
