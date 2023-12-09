@@ -1,7 +1,30 @@
-﻿@{
+﻿@model List<Champions>
+
+@{
     ViewBag.Title = "Home";
 }
 
-<h1> Welcome to league of legends champion search </h1>
-<p> Currently, only 10 champions are available. </p>
+<h1>Welcome to League of Legends Champion Search</h1>
+<p>Currently, only 10 champions are available.</p>
 
+<h1>Champions List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Lane</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var champion in Model)
+        {
+            <tr>
+                <td>@champion.ChampId</td>
+                <td>@champion.Name</td>
+                <td>@champion.Lanes?.Lane</td>
+            </tr>
+        }
+    </tbody>
+</table>
