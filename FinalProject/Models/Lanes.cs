@@ -4,8 +4,9 @@ namespace FinalProject.Models
 {
     public class Lanes
     {
-        public required int LaneID {  get; set; }
-        
+        [Key]// LaneID is primary key
+        public int LaneID {  get; set; }
+        // Lane for the champs
         public string? Lane {  get; set; }
 
     }

@@ -8,13 +8,14 @@ public class LeagueDbContext : DbContext
     public LeagueDbContext(DbContextOptions<LeagueDbContext> options)
         : base(options) { }
 
-    public DbSet<Champions> Champs { get; set; }
-    public DbSet<Lanes> Lane { get; set; }
+    public DbSet<Champions> Champs { get; set; }// DbSet for Champions entity
+    public DbSet<Lanes> Lane { get; set; } // DbSet for Lanes entity
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
+        // Seed data for "Lane"
         modelBuilder.Entity<Lanes>().HasData(
            new Lanes { LaneID = 1, Lane = "Top"},
            new Lanes { LaneID = 2, Lane = "Jungle"},
@@ -23,6 +24,7 @@ public class LeagueDbContext : DbContext
            new Lanes { LaneID = 5, Lane = "Support"}
            );
 
+        // Seed data for "Champions"
         modelBuilder.Entity<Champions>().HasData(
             new Champions
             {
